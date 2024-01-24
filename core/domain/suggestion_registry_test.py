@@ -140,7 +140,6 @@ class SuggestionEditStateContentDict(TypedDict):
     change: Dict[str, change_domain.AcceptableChangeDictTypes]
     score_category: str
     language_code: Optional[str]
-    last_updated: float
     created_on: float
     edited_by_reviewer: bool
 
@@ -179,7 +178,6 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             },
             'score_category': 'content.Algebra',
             'language_code': None,
-            'last_updated': utils.get_time_in_millisecs(self.fake_date),
             'created_on': utils.get_time_in_millisecs(self.fake_date),
             'edited_by_reviewer': False
         }
@@ -194,7 +192,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date,
+            expected_suggestion_dict['language_code'], False,
             self.fake_date
         )
 
@@ -211,7 +209,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -225,7 +223,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         self.assertEqual(suggestion.get_score_type(), 'content')
         self.assertEqual(suggestion.get_score_sub_type(), 'Algebra')
@@ -239,7 +237,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -259,7 +257,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -279,7 +277,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -301,7 +299,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -324,7 +322,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -343,7 +341,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -365,7 +363,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -388,7 +386,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -410,7 +408,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -433,7 +431,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -455,7 +453,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -484,7 +482,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -505,7 +503,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -527,7 +525,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -547,7 +545,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         suggestion.validate()
 
         suggestion.change.cmd = 'invalid_cmd'
@@ -565,7 +563,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -590,7 +588,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         suggestion.validate()
 
         suggestion.language_code = 'wrong_language_code'
@@ -611,7 +609,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.change.state_name = 'Introduction'
 
@@ -634,7 +632,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.change.state_name = 'invalid_state_name'
 
@@ -653,7 +651,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         change = {
             'cmd': exp_domain.CMD_ADD_STATE,
@@ -680,7 +678,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         change = {
             'cmd': exp_domain.CMD_EDIT_STATE_PROPERTY,
@@ -706,7 +704,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         change = {
             'cmd': exp_domain.CMD_EDIT_STATE_PROPERTY,
@@ -732,7 +730,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         new_content = state_domain.SubtitledHtml(
             'content', '<p>new suggestion html</p>').to_dict()
 
@@ -763,7 +761,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         with self.assertRaisesRegex(
             utils.ValidationError,
@@ -795,7 +793,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, change_dict,
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         actual_outcome_list = suggestion.get_all_html_content_strings()
         expected_outcome_list = [u'new suggestion content']
@@ -831,7 +829,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, change,
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         suggestion.convert_html_in_suggestion_change(
             html_validation_service.
@@ -864,7 +862,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, change_dict,
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         actual_outcome_list = suggestion.get_target_entity_html_strings()
         expected_outcome_list = [u'Old content.']
@@ -888,7 +886,7 @@ class SuggestionEditStateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, change_dict,
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         actual_outcome_list = suggestion.get_target_entity_html_strings()
         self.assertEqual(actual_outcome_list, [])
@@ -960,8 +958,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False,
-            self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         change = {
             'cmd': exp_domain.CMD_DELETE_STATE,
@@ -983,8 +980,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False,
-            self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         change = {
             'cmd': exp_domain.CMD_ADD_WRITTEN_TRANSLATION,
             'state_name': 'State 1',
@@ -1009,8 +1005,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False,
-            self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         change = {
             'cmd': exp_domain.CMD_ADD_WRITTEN_TRANSLATION,
             'state_name': 'Introduction',
@@ -1035,8 +1030,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False,
-            self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         change = {
             'cmd': exp_domain.CMD_ADD_WRITTEN_TRANSLATION,
             'state_name': 'Introduction',
@@ -1064,8 +1058,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date,
-            self.fake_date
+            expected_suggestion_dict['language_code'], False
         )
 
         self.assertDictEqual(
@@ -1081,7 +1074,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1095,7 +1088,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         self.assertEqual(suggestion.get_score_type(), 'translation')
         self.assertEqual(suggestion.get_score_sub_type(), 'Algebra')
@@ -1109,7 +1102,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1129,7 +1122,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1149,7 +1142,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1171,7 +1164,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1194,7 +1187,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1213,7 +1206,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1235,7 +1228,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1255,7 +1248,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1277,7 +1270,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1297,7 +1290,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1319,7 +1312,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1348,7 +1341,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1369,7 +1362,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1391,7 +1384,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1411,7 +1404,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1430,7 +1423,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1454,7 +1447,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         expected_language_code = (
             expected_suggestion_dict['change']['language_code']
         )
@@ -1480,7 +1473,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         suggestion.validate()
 
         # TODO(#13059): Here we use MyPy ignore because after we fully type the
@@ -1504,7 +1497,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1524,7 +1517,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         exp_services.update_exploration(
             self.author_id, 'exp1', [
@@ -1564,7 +1557,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, self.suggestion_dict['change'],
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         suggestion.accept(
             'Accepted suggestion by translator: Add translation change.')
@@ -1602,7 +1595,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
                 'data_format': 'set_of_normalized_string'
             },
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         suggestion.accept(
             'Accepted suggestion by translator: Add translation change.')
@@ -1634,7 +1627,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.PSEUDONYMOUS_ID,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.accept(
             'Accepted suggestion by translator: Add translation change.')
@@ -1656,7 +1649,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, self.suggestion_dict['change'],
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         actual_outcome_list = suggestion.get_all_html_content_strings()
 
@@ -1681,7 +1674,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
                 'data_format': 'set_of_normalized_string'
             },
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         actual_outcome_list = suggestion.get_all_html_content_strings()
 
@@ -1699,7 +1692,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, self.suggestion_dict['change'],
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         actual_outcome_list = suggestion.get_target_entity_html_strings()
         expected_outcome_list = [self.suggestion_dict['change']['content_html']]
@@ -1730,7 +1723,7 @@ class SuggestionTranslateContentUnitTests(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, change_dict,
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
         suggestion.convert_html_in_suggestion_change(
             html_validation_service.add_math_content_to_math_rte_components)
         self.assertEqual(
@@ -1805,7 +1798,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date,
+            expected_suggestion_dict['language_code'], False,
             self.fake_date
         )
 
@@ -1822,7 +1815,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1836,7 +1829,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         self.assertEqual(suggestion.get_score_type(), 'question')
         self.assertEqual(suggestion.get_score_sub_type(), 'topic_1')
@@ -1851,7 +1844,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1873,7 +1866,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1898,7 +1891,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1919,7 +1912,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1941,7 +1934,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1965,7 +1958,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -1996,7 +1989,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         suggestion.validate()
 
         # TODO(#13059): Here we use MyPy ignore because after we fully type the
@@ -2018,7 +2011,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         suggestion.validate()
 
         suggestion.change.skill_difficulty = 0.4
@@ -2039,7 +2032,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         skill_id = skill_services.get_new_skill_id()
         self.save_new_skill(skill_id, self.author_id, description='description')
@@ -2067,7 +2060,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         skill_id = skill_services.get_new_skill_id()
         self.save_new_skill(skill_id, self.author_id, description='description')
@@ -2092,7 +2085,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         # Here we use MyPy ignore because method `populate_old_value_of_change`
         # does not return any value but for testing purpose we are still
@@ -2110,7 +2103,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.change.skill_id = skill_services.get_new_skill_id()
 
@@ -2130,7 +2123,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         change = {
             'cmd': question_domain.CMD_UPDATE_QUESTION_PROPERTY,
@@ -2159,7 +2152,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         content_id_generator = translation_domain.ContentIdGenerator()
         change: ChangeType = {
@@ -2207,7 +2200,8 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             'exploration.exp1.thread1', 'exp1', 1,
             suggestion_models.STATUS_ACCEPTED, self.author_id,
             self.reviewer_id, change,
-            'question.topic_1', 'en', False, self.fake_date)
+            'question.topic_1', 'en', False, 
+            created_on=self.fake_date)
 
         content_id_generator = translation_domain.ContentIdGenerator()
         new_change: ChangeType = {
@@ -2258,7 +2252,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             'exploration.exp1.thread1', 'exp1', 1,
             suggestion_models.STATUS_ACCEPTED, self.author_id,
             self.reviewer_id, change,
-            'question.topic_1', 'en', False, self.fake_date)
+            'question.topic_1', 'en', False)
 
         content_id_generator = translation_domain.ContentIdGenerator()
         new_change: ChangeType = {
@@ -2312,7 +2306,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             'exploration.exp1.thread1', 'exp1', 1,
             suggestion_models.STATUS_ACCEPTED, self.author_id,
             self.reviewer_id, change,
-            'question.topic_1', 'en', False, self.fake_date)
+            'question.topic_1', 'en', False)
 
         content_id_generator = translation_domain.ContentIdGenerator()
         new_change: ChangeType = {
@@ -2352,7 +2346,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -2373,7 +2367,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -2392,7 +2386,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -2413,7 +2407,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
 
         suggestion.validate()
 
@@ -2434,7 +2428,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         # Here we use cast because the value of `question_dict` key is a
         # Union of all allowed change dict types. So, to narrow down the type
         # to QuestionDict, we used assert here.
@@ -2468,7 +2462,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             expected_suggestion_dict['status'], self.author_id,
             self.reviewer_id, expected_suggestion_dict['change'],
             expected_suggestion_dict['score_category'],
-            expected_suggestion_dict['language_code'], False, self.fake_date)
+            expected_suggestion_dict['language_code'], False)
         suggestion.validate()
 
         # TODO(#13059): Here we use MyPy ignore because after we fully type the
@@ -2489,7 +2483,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             self.suggestion_dict['status'], self.author_id,
             self.reviewer_id, self.suggestion_dict['change'],
             self.suggestion_dict['score_category'],
-            self.suggestion_dict['language_code'], False, self.fake_date)
+            self.suggestion_dict['language_code'], False)
 
         actual_outcome_list = suggestion.get_all_html_content_strings()
         expected_outcome_list = [
@@ -2622,7 +2616,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             suggestion_dict['target_version_at_submission'],
             suggestion_dict['status'], self.author_id, self.reviewer_id,
             suggestion_dict['change'], suggestion_dict['score_category'],
-            suggestion_dict['language_code'], False, self.fake_date)
+            suggestion_dict['language_code'], False)
         suggestion.convert_html_in_suggestion_change(
             html_validation_service.add_math_content_to_math_rte_components)
         # Ruling out the possibility of any other type for mypy type checking.
@@ -2689,7 +2683,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             suggestion_dict['target_version_at_submission'],
             suggestion_dict['status'], self.author_id, self.reviewer_id,
             suggestion_dict['change'], suggestion_dict['score_category'],
-            suggestion_dict['language_code'], False, self.fake_date)
+            suggestion_dict['language_code'], False)
         suggestion.accept('commit_message')
 
     def test_accept_suggestion_with_image_region_interactions(self) -> None:
@@ -2838,7 +2832,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             suggestion_dict['target_version_at_submission'],
             suggestion_dict['status'], self.author_id, self.reviewer_id,
             suggestion_dict['change'], suggestion_dict['score_category'],
-            suggestion_dict['language_code'], False, self.fake_date)
+            suggestion_dict['language_code'], False)
 
         suggestion.accept('commit_message')
 
@@ -2877,7 +2871,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
         suggestion = suggestion_registry.SuggestionAddQuestion(
             'suggestionId', 'target_id', 1, suggestion_models.STATUS_IN_REVIEW,
             self.author_id, 'test_reviewer', change, score_category, 'en',
-            False, self.fake_date)
+            False)
         # Ruling out the possibility of any other type for mypy type checking.
         assert isinstance(suggestion.change.question_dict, dict)
         self.assertEqual(
@@ -2917,8 +2911,7 @@ class SuggestionAddQuestionTest(test_utils.GenericTestBase):
             suggestion_registry.SuggestionAddQuestion(
                 'suggestionId', 'target_id', 1,
                 suggestion_models.STATUS_IN_REVIEW, self.author_id,
-                'test_reviewer', change, score_category, 'en', False,
-                self.fake_date)
+                'test_reviewer', change, score_category, 'en', False)
 
 
 class CommunityContributionStatsUnitTests(test_utils.GenericTestBase):
